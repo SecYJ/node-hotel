@@ -1,9 +1,11 @@
-// const mongoose = require("mongoose");
+const mongoose = require("mongoose");
 
-// export const connect = async () => {
-// 	try {
-// 		await mongoose.connect(process.env.MONGO_URI);
-// 	} catch (error) {
-// 		return new Response("Error connecting to database", { status: 500 });
-// 	}
-// };
+const connect = async (uri) => {
+	try {
+		await mongoose.connect(uri);
+	} catch (error) {
+		throw new Error("Connect db failed!!!!");
+	}
+};
+
+module.exports = { connect };
